@@ -30,3 +30,18 @@ Console.WriteLine();
 var bestStudent = students.OrderByDescending(s => s.GradeAverage).First();
 Console.WriteLine($"The best student in the database is {bestStudent.Name} with {bestStudent.GradeAverage}.");
 Console.WriteLine();
+
+var namesOfStudents = students.OrderBy(s => s.Name).Select(s => s.Name);
+Console.WriteLine("The names of the students in alphabetical order are:");
+foreach (var student in namesOfStudents)
+{
+    Console.WriteLine(student);
+}
+Console.WriteLine();
+
+var averageOfGrades = students.Average(s => s.GradeAverage);
+Console.WriteLine($"The average of grades is {averageOfGrades}.");
+Console.WriteLine();
+
+var checkStudents = students.Any(s => s.GradeAverage < 5);
+Console.WriteLine($"There are students with a grade average less than 5: {checkStudents}.");
