@@ -18,3 +18,15 @@ foreach (var group in groups)
     }
 }
 Console.WriteLine();
+
+var sortedStudents = students.OrderBy(s => s.CurrentYear).ThenBy(s => s.Name);
+Console.WriteLine("Students sorted by current year and then by name:");
+foreach (var student in sortedStudents)
+{
+    Console.WriteLine(student);
+}
+Console.WriteLine();
+
+var bestStudent = students.OrderByDescending(s => s.GradeAverage).First();
+Console.WriteLine($"The best student in the database is {bestStudent.Name} with {bestStudent.GradeAverage}.");
+Console.WriteLine();
